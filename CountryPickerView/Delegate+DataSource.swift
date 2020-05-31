@@ -93,6 +93,11 @@ public extension CountryPickerViewDataSource {
         return nil
     }
     
+    func userLocaization(in countryPickerView: CountryPickerView) -> Locale? {
+        return Locale(identifier: "en")
+    }
+
+    
     func showOnlyPreferredSection(in countryPickerView: CountryPickerView) -> Bool {
         return false
     }
