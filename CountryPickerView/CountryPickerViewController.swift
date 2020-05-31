@@ -13,6 +13,7 @@ public class CountryPickerViewController: UITableViewController {
     public var searchController: UISearchController?
     fileprivate var searchResults = [Country]()
     fileprivate var isSearchMode = false
+    fileprivate var userLocalization: Locale = Locale(identifier: "en")
     fileprivate var sectionsTitles = [String]()
     fileprivate var countries = [String: [Country]]()
     fileprivate var hasPreferredSection: Bool {
@@ -295,6 +296,10 @@ class CountryPickerViewDataSourceInternal: CountryPickerViewDataSource {
     
     var showOnlyPreferredSection: Bool {
         return view.dataSource?.showOnlyPreferredSection(in: view) ?? showOnlyPreferredSection(in: view)
+    }
+    
+    var userLocalization: Locale {
+        return view.dataSource?.userLocaization(in: view) ?? Locale(identifier: "en")
     }
     
     var sectionTitleLabelFont: UIFont {
