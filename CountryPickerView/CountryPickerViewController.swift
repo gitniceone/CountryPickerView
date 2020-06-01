@@ -40,9 +40,9 @@ public class CountryPickerViewController: UITableViewController {
         
         if #available(iOS 9.0, *) {
             if userLocalization.identifier == "ar" {
-                self.tableView.semanticContentAttribute = .forceRightToLeft
+                self.view.semanticContentAttribute = .forceRightToLeft
             } else {
-                self.tableView.semanticContentAttribute = .forceLeftToRight
+                self.view.semanticContentAttribute = .forceLeftToRight
             }
         }
     }
