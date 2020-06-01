@@ -37,6 +37,10 @@ public class CountryPickerViewController: UITableViewController {
         prepareTableItems()
         prepareNavItem()
         prepareSearchBar()
+    }
+    
+    public override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
         if #available(iOS 9.0, *) {
             if userLocalization.identifier == "ar" {
