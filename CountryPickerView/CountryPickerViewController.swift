@@ -101,9 +101,6 @@ extension CountryPickerViewController {
             closeButton.action = #selector(close)
             navigationItem.leftBarButtonItem = closeButton
         }
-        navigationItem.leftBarButtonItem?.title = ""
-        navigationItem.rightBarButtonItem?.title = ""
-
     }
     
     func prepareSearchBar() {
