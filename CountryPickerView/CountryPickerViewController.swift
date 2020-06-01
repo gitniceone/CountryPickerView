@@ -13,9 +13,6 @@ public class CountryPickerViewController: UITableViewController {
     public var searchController: UISearchController?
     fileprivate var searchResults = [Country]()
     fileprivate var isSearchMode = false
-    fileprivate var userLocalization: Locale {
-        return dataSource.userLocalization
-    }
     fileprivate var sectionsTitles = [String]()
     fileprivate var countries = [String: [Country]]()
     fileprivate var hasPreferredSection: Bool {
@@ -39,13 +36,8 @@ public class CountryPickerViewController: UITableViewController {
         prepareTableItems()
         prepareNavItem()
         prepareSearchBar()
-    }
-    
-    public override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
         if #available(iOS 9.0, *) {
-            if userLocalization.identifier == "ar" {
+            if dataSource.localeForCountryNameInList.identifier == "ar" {
                 self.view.semanticContentAttribute = .forceRightToLeft
                 self.searchController?.searchBar.semanticContentAttribute = .forceRightToLeft
                 self.searchController?.searchBar.placeholder = "بحث"
@@ -55,6 +47,10 @@ public class CountryPickerViewController: UITableViewController {
                 self.searchController?.searchBar.placeholder = "Search"
             }
         }
+    }
+    
+    public override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
    
 }
@@ -314,10 +310,6 @@ class CountryPickerViewDataSourceInternal: CountryPickerViewDataSource {
     
     var showOnlyPreferredSection: Bool {
         return view.dataSource?.showOnlyPreferredSection(in: view) ?? showOnlyPreferredSection(in: view)
-    }
-    
-    var userLocalization: Locale {
-        return view.dataSource?.userLocaization(in: view) ?? Locale(identifier: "en")
     }
     
     var sectionTitleLabelFont: UIFont {

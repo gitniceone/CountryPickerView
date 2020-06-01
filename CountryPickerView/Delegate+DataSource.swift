@@ -33,7 +33,6 @@ public protocol CountryPickerViewDataSource: class {
     /// - **See:** `preferredCountries` method. Both are required for the section to be shown.
     func sectionTitleForPreferredCountries(in countryPickerView: CountryPickerView) -> String?
 
-    func userLocaization(in countryPickerView: CountryPickerView) -> Locale?
     /// Determines if only the preferred section is shown
     func showOnlyPreferredSection(in countryPickerView: CountryPickerView) -> Bool
     
