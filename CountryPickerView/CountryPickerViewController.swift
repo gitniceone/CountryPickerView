@@ -38,10 +38,12 @@ public class CountryPickerViewController: UITableViewController {
         prepareNavItem()
         prepareSearchBar()
         
-        if userLocalization.identifier == "ar" {
-            self.tableView.semanticContentAttribute = .forceRightToLeft
-        } else {
-            self.tableView.semanticContentAttribute = .forceLeftToRight
+        if #available(iOS 9.0, *) {
+            if userLocalization.identifier == "ar" {
+                self.tableView.semanticContentAttribute = .forceRightToLeft
+            } else {
+                self.tableView.semanticContentAttribute = .forceLeftToRight
+            }
         }
     }
    
