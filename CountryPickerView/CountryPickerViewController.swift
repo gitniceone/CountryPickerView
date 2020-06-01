@@ -13,7 +13,9 @@ public class CountryPickerViewController: UITableViewController {
     public var searchController: UISearchController?
     fileprivate var searchResults = [Country]()
     fileprivate var isSearchMode = false
-    fileprivate var userLocalization: Locale = Locale(identifier: "en")
+    fileprivate var userLocalization: Locale {
+        return dataSource.userLocalization
+    }
     fileprivate var sectionsTitles = [String]()
     fileprivate var countries = [String: [Country]]()
     fileprivate var hasPreferredSection: Bool {
