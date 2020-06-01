@@ -48,9 +48,11 @@ public class CountryPickerViewController: UITableViewController {
             if userLocalization.identifier == "ar" {
                 self.view.semanticContentAttribute = .forceRightToLeft
                 self.searchController?.searchBar.semanticContentAttribute = .forceRightToLeft
+                self.searchController?.searchBar.placeholder = "بحث"
             } else {
                 self.view.semanticContentAttribute = .forceLeftToRight
                 self.searchController?.searchBar.semanticContentAttribute = .forceLeftToRight
+                self.searchController?.searchBar.placeholder = "Search"
             }
         }
     }
