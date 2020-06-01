@@ -33,7 +33,9 @@ extension UINavigationController {
         }
     }
     
+    
     func pushViewController(_ viewController: UIViewController, animated: Bool, completion: @escaping () -> Void) {
+        self.visibleViewController?.navigationItem.backBarButtonItem = UIBarButtonItem(title: " ", style: .plain, target: nil, action: nil)
         pushViewController(viewController, animated: animated)
         
         if animated, let coordinator = transitionCoordinator {
